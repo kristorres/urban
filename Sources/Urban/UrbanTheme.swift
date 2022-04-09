@@ -53,14 +53,7 @@ public struct UrbanTheme {
     public struct FontSet {
         
         /// Creates a default font set.
-        public init() {
-            if #available(iOS 14, macOS 11, *) {
-                subheader = .title2
-                return
-            }
-            
-            subheader = .headline
-        }
+        public init() {}
         
         /// The title font.
         public var title = Font.largeTitle
@@ -69,7 +62,7 @@ public struct UrbanTheme {
         public var header = Font.title
         
         /// The subheader font.
-        public var subheader: Font
+        public var subheader = Font.title2
         
         /// The font for body text.
         public var body = Font.body
