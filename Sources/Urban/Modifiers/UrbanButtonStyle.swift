@@ -200,3 +200,52 @@ public extension ButtonStyle where Self == UrbanButtonStyle {
         return .init(variant: variant, color: colorSet)
     }
 }
+
+struct UrbanButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        let variants: [UrbanButtonStyle.Variant] = [.filled, .outlined, .plain]
+        let colors: [UrbanButtonStyle.ColorSet] = [
+            .primary,
+            .secondary,
+            .danger
+        ]
+        
+        return Group {
+            VStack(spacing: 16) {
+                ForEach(variants, id: \.self) { variant in
+                    ForEach(colors, id: \.self) { color in
+                        Button("Press Me") {}
+                            .buttonStyle(.urban(variant: variant, color: color))
+                    }
+                    Button("Press Me") {}
+                        .buttonStyle(.urban(variant: variant))
+                        .disabled(true)
+                }
+            }
+                .padding()
+                .preferredColorScheme(.light)
+                .previewLayout(.sizeThatFits)
+                .previewDisplayName("UrbanButton (Light Mode)")
+            
+            VStack(spacing: 16) {
+                ForEach(variants, id: \.self) { variant in
+                    ForEach(colors, id: \.self) { color in
+                        Button(action: {}) {
+                            Text("Press Me").frame(maxWidth: 100)
+                        }
+                            .buttonStyle(.urban(variant: variant, color: color))
+                    }
+                    Button(action: {}) {
+                        Text("Press Me").frame(maxWidth: 100)
+                    }
+                    .buttonStyle(.urban(variant: variant))
+                    .disabled(true)
+                }
+            }
+                .padding()
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+                .previewDisplayName("UrbanButton (Dark Mode)")
+        }
+    }
+}

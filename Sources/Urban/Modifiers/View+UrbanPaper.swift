@@ -67,3 +67,51 @@ fileprivate struct UrbanPaper: ViewModifier {
         static let shadowRadius: CGFloat = 4
     }
 }
+
+struct UrbanPaper_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            cardExample(border: false)
+                .padding()
+                .preferredColorScheme(.light)
+                .previewLayout(.sizeThatFits)
+                .previewDisplayName("UrbanPaper (Light Mode)")
+            
+            cardExample(border: true)
+                .padding()
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+                .previewDisplayName("UrbanPaper (Dark Mode)")
+        }
+    }
+    
+    static func cardExample(border hasBorder: Bool) -> some View {
+        return VStack(spacing: 0) {
+            VStack(spacing: 16) {
+                VStack(alignment: .leading) {
+                    Text("Tokyo")
+                        .font(.title)
+                    Text("Mon, 12:30 PM, Sunny")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+                }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack(alignment: .center) {
+                    Text("23ºC")
+                    Spacer()
+                    Image(systemName: "sun.max.fill").renderingMode(.original)
+                }
+                    .font(.system(size: 72))
+            }
+                .padding()
+            Divider()
+            Button("Expand") {}
+                .buttonStyle(.urban())
+                .padding(8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+            .urbanPaper(border: hasBorder)
+            .frame(width: 320)
+    }
+}
