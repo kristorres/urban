@@ -54,7 +54,7 @@ public struct UrbanTheme {
         
         /// Creates a default font set.
         public init() {
-            if #available(iOS 13, macOS 11, *) {
+            if #available(iOS 14, macOS 11, *) {
                 subheader = .title2
                 return
             }
