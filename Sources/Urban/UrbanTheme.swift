@@ -9,9 +9,9 @@ public typealias MCColorPair = (main: Color, content: Color)
 /// customize design aspects such as the colors, typography, and more.
 ///
 /// The conventional way to create a new theme from an already existing theme is
-/// to extend the `UrbanTheme` type and customize any of the properties.
+/// to extend the ``UrbanTheme`` type and customize any of the properties.
 ///
-/// ```
+/// ```swift
 /// extension UrbanTheme {
 ///     static let sana: UrbanTheme = {
 ///         var theme = UrbanTheme()
@@ -27,7 +27,7 @@ public typealias MCColorPair = (main: Color, content: Color)
 /// You can then use an environment value to dynamically control the theme of a
 /// SwiftUI view (and its children).
 ///
-/// ```
+/// ```swift
 /// // Setting the theme
 /// MyView().urbanTheme(.sana)
 ///

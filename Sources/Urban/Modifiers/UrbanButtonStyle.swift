@@ -7,9 +7,9 @@ public struct UrbanButtonStyle: ButtonStyle {
     
     /// Creates a button style that conforms to the current app theme.
     ///
-    /// - Parameter variant:  The button type. The default is `.plain`.
+    /// - Parameter variant:  The button type. The default is ``Variant/plain``.
     /// - Parameter colorSet: The color set that makes sense for the button’s
-    ///                       context. The default is `.primary`.
+    ///                       context. The default is ``ColorSet/primary``.
     public init(
         variant: Variant = .plain,
         color colorSet: ColorSet = .primary
@@ -41,7 +41,7 @@ public struct UrbanButtonStyle: ButtonStyle {
     }
     
     /// A color set that makes sense for the context of a button with the
-    /// `UrbanButtonStyle`.
+    /// ``UrbanButtonStyle``.
     public enum ColorSet {
         case primary
         case secondary
@@ -188,9 +188,11 @@ public extension ButtonStyle where Self == UrbanButtonStyle {
     /// To apply this style to a button, or to a view that contains buttons, use
     /// the `buttonStyle(_:)` modifier.
     ///
-    /// - Parameter variant:  The button type. The default is `.plain`.
+    /// - Parameter variant:  The button type. The default is
+    ///                       ``UrbanButtonStyle/Variant/plain``.
     /// - Parameter colorSet: The color set that makes sense for the button’s
-    ///                       context. The default is `.primary`.
+    ///                       context. The default is
+    ///                       ``UrbanButtonStyle/ColorSet/primary``.
     ///
     /// - Returns: The button style.
     static func urban(
